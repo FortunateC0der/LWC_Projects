@@ -1,0 +1,9 @@
+<template>
+        <lightning-card  variant="Narrow"  title="Conditional Rendering" icon-name="standard:account">
+            <div class="slds-p-around_medium lgc-bg">
+                <lightning-input type="checkbox" name="clickMe" label="Click Me" onchange={handleChange}></lightning-input>
+                    <template if:true={isClicked}> I am Visible</template>
+                    <template if:false={isClicked}> I am Hidden</template>
+            </div>
+        </lightning-card>
+</template>

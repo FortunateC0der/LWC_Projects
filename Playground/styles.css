@@ -1,0 +1,16 @@
+#mphile {
+    color:blue
+}
+
+h1 {
+    background-color: yellow;
+}
+
+h2 {
+    color: violet
+}
+
+.kefentse {
+  display: flex;
+  justify-content: center;
+}
