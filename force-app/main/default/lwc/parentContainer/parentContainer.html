@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Parent Container">
+        <div class="slds-p-around_medium">
+            <!-- Listen to custom event -->
+            <c-child-form onuserdetails={handleUserDetails}></c-child-form>
+
+            <template if:true={hasData}>
+                <p class="slds-m-top_medium"><strong>Name:</strong> {receivedName}</p>
+                <p><strong>Email:</strong> {receivedEmail}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
