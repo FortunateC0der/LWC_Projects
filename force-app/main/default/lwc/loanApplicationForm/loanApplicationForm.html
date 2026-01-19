@@ -1,18 +1,21 @@
 <template>
-    <h1>Loan Application Form</h1>
+    <lightning-card title="Loan Application Form" icon-name="standard:form">
+        <div class="slds-m-around_medium">
+            <!-- Child component that listens for 'personaldetailsave' event -->
+            <c-personal-details
+                onpersonaldetailsave={handlePersonalDetailSave}>
+            </c-personal-details>
+            
+            <!-- Child component that listens for 'loandetailsave' event -->
+            <c-loan-details
+                onloandetailsave={handleLoanDetailSave}>
+            </c-loan-details>
 
-    <!-- Child component that listens for 'personaldetailsave' event -->
-    <c-personal-details
-        onpersonaldetailsave={handlePersonalDetailSave}>
-    </c-personal-details>
+            <!-- Submit button -->
+            <button onclick={submitApplication}>
+                Submit Loan
+            </button>
+        </div>
+    </lightning-card>
     
-     <!-- Child component that listens for 'loandetailsave' event -->
-    <c-loan-details
-        onloandetailsave={handleLoanDetailSave}>
-    </c-loan-details>
-
-    <!-- Submit button -->
-    <button onclick={submitApplication}>
-        Submit Loan
-    </button>
 </template>

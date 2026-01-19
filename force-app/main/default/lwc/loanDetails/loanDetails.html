@@ -1,24 +1,28 @@
 <template>
-    <h2>Loan Details</h2>
+     <lightning-card title="Loan Details">
+        <div class="slds-m-around_medium">
+            <!-- Collect Loan Information -->
+            <lightning-input
+                type="number"
+                label="Amount"
+                value={amount}
+                onchange={handleAmountChange}>
+            </lightning-input>
 
-    <lightning-input
-        label="Amount"
-        type="number"
-        value={amount}
-        onchange={handleAmountChange}>
-    </lightning-input>
+            <lightning-input
+                type="number"
+                label="Term (months)"
+                value={term}
+                onchange={handleTermChange}>
+            </lightning-input>
 
-    <lightning-input
-        label="Term (months)"
-        type="number"
-        value={term}
-        onchange={handleTermChange}>
-    </lightning-input>
-
-    <lightning-combobox
-        label="Loan Type"
-        value={type}
-        options={loanOptions}
-        onchange={handleLoanTypeChange}>
-    </lightning-combobox>
+            <lightning-combobox
+                label="Loan Type"
+                value={type}
+                options={loanOptions}
+                onchange={handleLoanTypeChange}>
+            </lightning-combobox>
+        </div>
+    </lightning-card>
+     
 </template>
