@@ -3,7 +3,7 @@ import { LightningElement } from 'lwc';
 export default class LoanDetails extends LightningElement {
     // Store loan input values
     amount = 0;
-    term = 12;
+    term = 0;
     loanType = '';
 
     // Options shown in the Loan Type dropdown
