@@ -1,24 +1,24 @@
 <template>
     <h2>Personal Details</h2>
     <!-- Collect Customer Information -->
-    <lightning-input 
-        label="Full Name" 
-        value={name} 
-        onchange={handleInput} 
-        data-field="name">
+    <lightning-input
+        type="text"
+        label="First Name"
+        value={firstName}
+        onchange={handleFirstNameChange}>
     </lightning-input>
 
-    <lightning-input 
-        label="ID Number" 
-        value={idNumber} 
-        onchange={handleInput} 
-        data-field="idNumber">
+    <lightning-input
+        type="text"
+        label="ID Number"
+        value={idNumber}
+        onchange={handleIdNumberChange}>
     </lightning-input>
 
-    <lightning-input 
-        label="Phone Number" 
-        value={phone} 
-        onchange={handleInput} 
-        data-field="phone">
+    <lightning-input
+        type="text"
+        label="Phone Number"
+        value={phone}
+        onchange={handlePhoneChange}>
     </lightning-input>
 </template>
