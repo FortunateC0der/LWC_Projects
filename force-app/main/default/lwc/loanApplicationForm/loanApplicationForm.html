@@ -2,14 +2,14 @@
     <h1>Loan Application Form</h1>
 
     <!-- Child component that listens for 'personaldetailsave' event -->
-    <personal-details
+    <c-personal-details
         onpersonaldetailsave={handlePersonalDetailSave}>
-    </personal-details>
+    </c-personal-details>
     
      <!-- Child component that listens for 'loandetailsave' event -->
-    <loan-details
+    <c-loan-details
         onloandetailsave={handleLoanDetailSave}>
-    </loan-details>
+    </c-loan-details>
 
     <!-- Submit button -->
     <button onclick={submitApplication}>
