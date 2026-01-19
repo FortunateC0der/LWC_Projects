@@ -1,0 +1,18 @@
+<template>
+    <h1>Loan Application Form</h1>
+
+    <!-- Child component that listens for 'personaldetailsave' event -->
+    <personal-details
+        onpersonaldetailsave={handlePersonalDetailSave}>
+    </personal-details>
+    
+     <!-- Child component that listens for 'loandetailsave' event -->
+    <loan-details
+        onloandetailsave={handleLoanDetailSave}>
+    </loan-details>
+
+    <!-- Submit button -->
+    <button onclick={submitApplication}>
+        Submit Loan
+    </button>
+</template>

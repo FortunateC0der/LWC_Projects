@@ -1,0 +1,24 @@
+<template>
+    <h2>Loan Details</h2>
+
+    <lightning-input
+        label="Amount"
+        type="number"
+        value={amount}
+        onchange={handleAmountChange}>
+    </lightning-input>
+
+    <lightning-input
+        label="Term (months)"
+        type="number"
+        value={term}
+        onchange={handleTermChange}>
+    </lightning-input>
+
+    <lightning-combobox
+        label="Loan Type"
+        value={type}
+        options={loanOptions}
+        onchange={handleLoanTypeChange}>
+    </lightning-combobox>
+</template>
