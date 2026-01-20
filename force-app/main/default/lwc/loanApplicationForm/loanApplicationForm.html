@@ -1,21 +1,73 @@
 <template>
-    <lightning-card title="Loan Application Form" icon-name="standard:form">
-        <div class="slds-m-around_medium">
-            <!-- Child component that listens for 'personaldetailsave' event -->
-            <c-personal-details
-                onpersonaldetailsave={handlePersonalDetailSave}>
-            </c-personal-details>
-            
-            <!-- Child component that listens for 'loandetailsave' event -->
-            <c-loan-details
-                onloandetailsave={handleLoanDetailSave}>
-            </c-loan-details>
+  <lightning-card title="Loan Application Form" icon-name="standard:form">
+    <div class="slds-m-around_medium">
+      <!-- Success Message -->
+      <template if:true={isSuccessful}>
+        <lightning-card
+          title="Success!"
+          icon-name="standard:account"
+          variant="success"
+          class="slds-m-bottom_medium"
+        >
+          <div class="slds-p-around_medium">
+            <p class="slds-text-color_success slds-text-heading_medium">
+              ✓ Loan Application Successfully Submitted!
+            </p>
+            <div class="slds-m-top_medium slds-border_top slds-p-top_medium">
+              <h3 class="slds-text-heading_small slds-m-bottom_small">
+                Submitted Information:
+              </h3>
+              <p><strong>Full Name:</strong> {customerInfo.name}</p>
+              <p><strong>ID Number:</strong> {customerInfo.idNumber}</p>
+              <p><strong>Phone Number:</strong> {customerInfo.phone}</p>
+              <p><strong>Loan Amount:</strong> ${loanInfo.amount}</p>
+              <p><strong>Loan Term:</strong> {loanInfo.term} months</p>
+              <p><strong>Loan Type:</strong> {loanInfo.loanType}</p>
+            </div>
+            <lightning-button
+              label="Submit Another Application"
+              variant="brand"
+              class="slds-m-top_medium"
+              onclick={handleResetForm}
+            >
+            </lightning-button>
+          </div>
+        </lightning-card>
+      </template>
 
-            <!-- Submit button -->
-            <button onclick={submitApplication}>
-                Submit Loan
-            </button>
-        </div>
-    </lightning-card>
-    
+      <!-- Step 1: Personal Details -->
+      <template if:true={isStep1}>
+        <c-personal-details
+          onpersonaldetailsave={handlePersonalDetailSave}
+          onnextstep={handleNextStep}
+        >
+        </c-personal-details>
+      </template>
+
+      <!-- Step 2: Loan Details -->
+      <template if:true={isStep2}>
+        <template if:false={isSuccessful}>
+          <c-loan-details onloandetailsave={handleLoanDetailSave}>
+          </c-loan-details>
+
+          <!-- Back and Submit buttons -->
+          <div class="slds-m-top_medium">
+            <lightning-button
+              label="Back"
+              class="slds-m-right_small"
+              onclick={handleBackStep}
+            >
+            </lightning-button>
+
+            <lightning-button
+              label="Submit Loan"
+              variant="brand"
+              onclick={submitApplication}
+            >
+            </lightning-button>
+          </div>
+        </template>
+      </template>
+    </div>
+  </lightning-card>
 </template>
